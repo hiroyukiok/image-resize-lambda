@@ -11,27 +11,38 @@ cannot import name '_imaging' のようなエラーが出る。
 ・以下、zip生成方法
 
 ・開発ツールのインストール等
+```
 sudo dnf groupinstall "Development Tools" -y
 sudo dnf update -y
 sudo dnf install -y python3.12 python3.12-pip zip
-
+```
 ・インストール確認
+```
 python3.12 --version
 pip3.12 --version
+```
 
 ・作業ディレクトリ作成
+```
 mkdir ~/pillow-layer
 cd ~/pillow-layer
 mkdir -p python/lib/python3.12/site-packages
+```
 
 ・Pillow をインストール
+```
 pip3.12 install pillow -t python/lib/python3.12/site-packages
+```
 
 ・ZIP ファイル作成
+```
 zip -r9 ../pillow-python312.zip python
+```
 
 ・作成された ZIP を確認
+```
 ls -lh ../pillow-python312.zip
+```
 
 できあがった pillow-python312.zip をAWSにlambdaにアップロードしレイヤーを作成する。pillow312等任意の名前をつける。
 
